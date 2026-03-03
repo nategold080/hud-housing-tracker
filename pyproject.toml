@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "hud-housing-tracker"
+version = "1.0.0"
+description = "Cross-linked database of HUD affordable housing properties with LIHTC, REAC inspections, Section 8 contracts, and ownership data"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
