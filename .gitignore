@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+data/raw/
+data/cache/
+data/exports/
+*.db.bak
+*.sqlite3
+.DS_Store
+.env
+*.log
+.pytest_cache/
+outreach/
