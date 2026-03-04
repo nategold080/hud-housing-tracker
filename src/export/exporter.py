@@ -45,7 +45,7 @@ def _export_csv(conn: sqlite3.Connection) -> list[str]:
         cols = [desc[0] for desc in conn.execute(f"SELECT * FROM {table} LIMIT 1").description]
         path = EXPORT_DIR / f"{table}.csv"
 
-        with open(path, "w", newline="", encoding="utf-8", errors="replace") as f:
+        with open(path, "w", newline="") as f:
             writer = csv.writer(f)
             writer.writerow(cols)
             for row in rows:
@@ -61,9 +61,6 @@ def _export_json(conn: sqlite3.Connection) -> str:
 
     for table in TABLES:
         rows = conn.execute(f"SELECT * FROM {table}").fetchall()
-        if not rows:
-            data[table] = []
-            continue
         cols = [desc[0] for desc in conn.execute(f"SELECT * FROM {table} LIMIT 1").description]
         data[table] = [dict(zip(cols, row)) for row in rows]
 
